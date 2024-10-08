@@ -6,7 +6,12 @@ import genero from './models/Generos.js';
 import novoArtista from './models/NovoArtistas.js';
 
 const app = express();
-app.use(cors(), express.json());
+app.use(cors(
+    {
+        origin: "*",
+        credentials: true
+    }
+), express.json());
 const conexao = await conectaNaDb();
 
 conexao.on('error', (erro) => { 
