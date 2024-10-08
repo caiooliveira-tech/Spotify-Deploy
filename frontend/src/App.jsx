@@ -44,18 +44,18 @@ function App() {
           <>
           <SliderCards titulo="Rock">
             {artistas
-            .filter( genero => genero.genres.includes("Rock"))
-            .sort((a, b) => a.name.localeCompare(b.name))
-            .slice(0,5)
+            // .filter( genero => genero.genres.includes("Rock"))
+            // .sort((a, b) => a.name.localeCompare(b.name))
+            // .slice(0,5)
             .map(artista => (
               <Card key={artista._id} {...artista}/>
             ))}
           </SliderCards>
           <SliderCards titulo="Pop">
             {artistas
-            .filter( genero => genero.genres.includes("Pop" || "Rap"))
-            .sort((a, b) => a.name.localeCompare(b.name))
-            .slice(0,5)
+            // .filter( genero => genero.genres.includes("Pop" || "Rap"))
+            // .sort((a, b) => a.name.localeCompare(b.name))
+            // .slice(0,5)
             .map(artista => (
               <Card key={artista._id} {...artista}/>
             ))}
