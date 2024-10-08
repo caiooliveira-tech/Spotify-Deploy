@@ -18,7 +18,7 @@ function App() {
       setTimeout(() => {
       fetch('https://spotify-deploy-api.vercel.app/novoArtistas')
       .then(res => res.json())
-      .then(data => setArtistas(data))
+      .then(data => {setArtistas(data), console.log(data)})
       .catch(err => console.log(err))
       .finally(() => setIsLoading(false))
       }, 5000)
