@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     setIsLoading(true);
       setTimeout(() => {
-      fetch('http://localhost:3000/artistas')
+      fetch('https://spotify-deploy-api.vercel.app/novoArtistas')
       .then(res => res.json())
       .then(data => setArtistas(data))
       .catch(err => console.log(err))
