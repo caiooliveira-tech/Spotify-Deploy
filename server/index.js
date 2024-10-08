@@ -6,13 +6,7 @@ import genero from './models/Generos.js';
 import novoArtista from './models/NovoArtistas.js';
 
 const app = express();
-app.use(cors(
-    {
-        origin: 'https://spotify-deploy-front.vercel.app',
-        methods: ["POST", "GET"],
-        credentials: true
-    }
-), express.json());
+app.use(cors(), express.json());
 const conexao = await conectaNaDb();
 
 conexao.on('error', (erro) => { 
