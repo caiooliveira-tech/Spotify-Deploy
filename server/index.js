@@ -3,7 +3,6 @@ import conectaNaDb from './db.js';
 import cors from 'cors';
 import artistas from './models/Artistas.js';
 import genero from './models/Generos.js';
-import novoArtista from './models/NovoArtistas.js';
 
 const app = express();
 app.use(cors(
@@ -34,11 +33,6 @@ app.get('/artistas', async (req, res) => {
 app.get('/generos', async (req, res) => {
     const listaGeneros = await genero.find({});
     res.status(200).json(listaGeneros);
-});
-
-app.get('/novoArtistas', async (req, res) => {
-    const listaNovoArtistas = await novoArtista.find({});
-    res.status(200).json(listaNovoArtistas);
 });
 
 app.get('/artistas/:id', async (req, res) => {

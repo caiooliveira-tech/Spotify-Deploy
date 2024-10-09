@@ -5,7 +5,7 @@ import Sidebar from "./components/Sidebar";
 import Container from "./components/Container";
 import SliderCards from "./components/SliderCards";
 import ConteudoPrincipal from "./pages/ConteudoPrincipal";
-import 'ldrs/waveform'
+import 'ldrs/waveform' 
 
 function App() {
 
@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     setIsLoading(true);
       setTimeout(() => {
-      fetch('https://spotify-deploy-api.vercel.app/novoArtistas')
+      fetch('https://spotify-deploy-api.vercel.app/artistas')
       .then(res => res.json())
       .then(data => {setArtistas(data), console.log(data)})
       .catch(err => console.log(err))
@@ -44,18 +44,18 @@ function App() {
           <>
           <SliderCards titulo="Rock">
             {artistas
-            // .filter( genero => genero.genres.includes("Rock"))
-            // .sort((a, b) => a.name.localeCompare(b.name))
-            // .slice(0,5)
+            .filter( genero => genero.genres.includes("Rock"))
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .slice(0,5)
             .map(artista => (
               <Card key={artista._id} {...artista}/>
             ))}
           </SliderCards>
           <SliderCards titulo="Pop">
             {artistas
-            // .filter( genero => genero.genres.includes("Pop" || "Rap"))
-            // .sort((a, b) => a.name.localeCompare(b.name))
-            // .slice(0,5)
+            .filter( genero => genero.genres.includes("Pop" || "Rap"))
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .slice(0,5)
             .map(artista => (
               <Card key={artista._id} {...artista}/>
             ))}
