@@ -1,11 +1,12 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 import PageNotFound from './pages/PageNotFound.jsx'
 import Artista from './pages/Artista.jsx'
 import ConteudoPrincipal from './pages/ConteudoPrincipal.jsx'
+
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 const router = createBrowserRouter([
   {
