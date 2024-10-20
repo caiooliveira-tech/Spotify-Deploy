@@ -36,11 +36,14 @@ app.get('/generos', async (req, res) => {
 });
 
 app.get('/artistas/:id', async (req, res) => {
-    const { id } = req.params;
-    const artista = await artistas.findById(id);
+    const artista = await artistas.findById(req.params.id);
     res.status(200).json(artista);
 });
-
+app.get('/search/:nome', async (req, res) => {
+    const { nome } = req.params;
+    const artista = await artistas.find({name: new RegExp(nome, 'i')});
+    res.status(200).json(artista);
+});
 
 app.post('/artistas', async ( req, res) => {
     const novoArtista = new artistas(req.body);
