@@ -19,9 +19,12 @@ export default function SearchPage() {
          <div className="bg-gray-900 rounded-lg w-8/12 p-8">
             <SliderCards titulo="Resultados da busca">
             {
-                searchResults.map( resultado => (
-                    <Card key={resultado._id} {...resultado}/>
-                ))
+                searchResults.length > 0 ?
+                    searchResults.map( resultado => (
+                        <Card key={resultado._id} {...resultado}/>
+                    ))
+                :
+                <h1 className="text-white text-xl mt-5">Infelizmente seu artista ainda não está no nosso site 😭</h1>
             }
             </SliderCards>
         </div>
