@@ -32,7 +32,7 @@ export default function Header() {
             <nav className="flex gap-5 items-center">
                 <NavLink to="/" className="text-2xl">Home</NavLink>
                 <button 
-                    className="text-xl font-medium bg-white rounded-full text-gray-900 px-4 py-2"
+                    className="text-xl font-medium bg-white rounded-full text-gray-900 px-4 py-2 hover:scale-105 transition duration-200"
                     onClick={() => setIsLogged(!isLogged)}
                     >{isLogged? 'Logout' : 'Login'}</button>
             </nav>
