@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import 'ldrs/waveform' 
+import 'ldrs/waveform'  
+import SliderCards from "../components/SliderCards";
+import Card from "../components/Card";
 
 export default function ConteudoPrincipal() {
 
@@ -19,7 +21,7 @@ export default function ConteudoPrincipal() {
   },[])
 
     return(
-        <div className="bg-gray-400 w-3/4 grid grid-cols-1 justify-items-start pl-7 pt-7">
+        <div className="w-3/4 grid grid-cols-1 justify-items-start pl-7 pt-7">
          {isLoading ?
           <div className="flex flex-col justify-center items-center w-full font-bold gap-4">
             <p>Carregando...</p>
@@ -27,7 +29,7 @@ export default function ConteudoPrincipal() {
                 size="55"
                 stroke="3.5"
                 speed="1"
-                color="black" 
+                color="white" 
               ></l-waveform>
             </div>
           :
@@ -38,8 +40,7 @@ export default function ConteudoPrincipal() {
             .sort((a, b) => a.name.localeCompare(b.name))
             .slice(0,5)
             .map(artista => (
-              
-              <Card key={artista._id} {...artista}/>
+                <Card key={artista._id} {...artista}/>
             ))}
           </SliderCards>
           <SliderCards titulo="Pop">
@@ -48,7 +49,7 @@ export default function ConteudoPrincipal() {
             .sort((a, b) => a.name.localeCompare(b.name))
             .slice(0,5)
             .map(artista => (
-              <Card key={artista._id} {...artista}/>
+                <Card key={artista._id} {...artista}/>
             ))}
           </SliderCards>
           </>

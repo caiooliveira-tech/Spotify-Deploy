@@ -24,6 +24,7 @@ export default function Artista() {
     return (
         <div>
             <h1>{artista.name}</h1>
+            <img src={artista.capa? artista.capa : '/capa.jpg'} alt="Capa do artista" className="w-[100px] h-[100px]"/>
             <p>{artista.bio}</p>
         </div>
     )
