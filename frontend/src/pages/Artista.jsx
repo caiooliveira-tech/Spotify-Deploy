@@ -22,9 +22,11 @@ export default function Artista() {
    
     
     return (
-        <div>
-            <h1>{artista.name}</h1>
-            <img src={artista.capa? artista.capa : '/capa.jpg'} alt="Capa do artista" className="w-[100px] h-[100px]"/>
+        <div className="bg-gray-900 rounded-md w-8/12 p-10">
+            <div className="flex items-center mb-4 gap-5">
+                <img src={artista.capa? artista.capa : '/capa.jpg'} alt="Capa do artista" className="w-[100px] h-[100px]"/>
+                <h1 className="text-7xl font-bold">{artista.name}</h1>
+            </div>
             <p>{artista.bio}</p>
         </div>
     )

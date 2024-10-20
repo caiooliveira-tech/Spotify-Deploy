@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import 'ldrs/waveform'  
+import { waveform } from 'ldrs' 
 import SliderCards from "../components/SliderCards";
 import Card from "../components/Card";
 
 export default function ConteudoPrincipal() {
+
+  waveform.register();
 
   const [artistas, setArtistas] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -17,13 +19,13 @@ export default function ConteudoPrincipal() {
       .then(data => {setArtistas(data), console.log(data)})
       .catch(err => console.log(err))
       .finally(() => setIsLoading(false))
-      }, 5000)
+      }, 3000)
   },[])
 
     return(
-        <div className="w-3/4 grid grid-cols-1 justify-items-start pl-7 pt-7">
+        <div className="bg-gray-900 rounded-lg w-8/12 grid grid-cols-1 justify-items-start pl-7 pt-7">
          {isLoading ?
-          <div className="flex flex-col justify-center items-center w-full font-bold gap-4">
+          <div className="flex flex-col flex-wrap justify-center items-center w-full font-bold gap-4">
             <p>Carregando...</p>
               <l-waveform
                 size="55"
@@ -47,7 +49,7 @@ export default function ConteudoPrincipal() {
             {artistas
             .filter( genero => genero.genres.includes("Pop" || "Rap"))
             .sort((a, b) => a.name.localeCompare(b.name))
-            .slice(0,5)
+            .slice(0,4)
             .map(artista => (
                 <Card key={artista._id} {...artista}/>
             ))}
